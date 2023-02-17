@@ -187,21 +187,6 @@ private:
 
 int main()
 {
-    //implement menu for user
-    //Dillon Will implement
-    //AES userFile;
     
-    cout << "Plain Text: ABCD" << endl;
-
-    Caesar_Encryption x(2);
-
-    string cipherText = x.Encrypt("ABCD");
-
-    cout << "Cipher Text: " << cipherText << endl;
-
-    string decipher = x.Decrypt(cipherText);
-
-    cout << "Deciphered Text: " << decipher << endl;
-
     return 0;
 }
