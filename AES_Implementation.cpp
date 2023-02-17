@@ -12,19 +12,21 @@ public:
     /**
      * Default Constructor with no inputs
      */
-    Caesar_Encryption(): _fileName(" "), _key(0){
+    Caesar_Encryption(): _key(0){
     }
 
     /**
      * Constructor with a string input and int key
      */
-    Caesar_Encryption(string fileName, int key): _fileName(fileName), _key(key){
+    Caesar_Encryption(int key): _key(key){
         InitializeDictionaries();
     }
 
     // Member Functions()
     /**
-     * Encrypt \n
+     * Encrypt
+     * @param plainText
+     * @return
      */
     string Encrypt(string plainText){
         // initialize variables
@@ -69,6 +71,11 @@ public:
         return cipherText;
     }
 
+    /**
+     * Decrypt
+     * @param cipherText
+     * @return
+     */
     string Decrypt(string cipherText){
         // initialize variables
         string plainText;
@@ -114,7 +121,6 @@ public:
     }
 
 private:
-    string _fileName;
     int _key;
     vector<char> _dictionary;
     vector<char> _encryptedDictionary;
@@ -187,7 +193,7 @@ int main()
     
     cout << "Plain Text: ABCD" << endl;
 
-    Caesar_Encryption x("bob", 2);
+    Caesar_Encryption x(2);
 
     string cipherText = x.Encrypt("ABCD");
 
