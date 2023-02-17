@@ -11,15 +11,52 @@ public:
     string fileName="";
     // Member Functions()
     void CaesarsCipher(string text){
-        //needs to read non-encrpted file in file in segments of 16 charcters into a 4x4 array like [][]
-        //and call the shift rows and mix columns functions and rewrite file
+        
         cout << text << endl;
     };
-    void VigenereSquare(string text){
-        //needs to encrypted file in segments of 16 charcters into a 4x4 array like [][]
-        //and call the inverse shift rows and inverse mix columns functions and rewrite file
-        cout << text << endl;
+
+     string GenerateKey(string text, string keyword){
+        int x = text.size();
+        for(int i=0; ; i++){
+            if (x == i)
+            i = 0;
+            if (keyword.size() == str.size())
+            break;
+            keyword.push_back(keyword[i]);
+        }
+        return keyword; 
     };
+    string EncryptVigenereSquare(string text, string keyword){
+        string encryptedtext;
+
+        for(int i=0; i< text.size(); i++){
+            if(text[i].isaplha()){
+                char x = (text[i]+keyword[i])%26;
+                x+='A';
+                encryptedtext.push_back(x);
+            }
+            else{
+                encryptedtext.push_back(text[i]);
+            }
+        }
+        return encryptedtext;
+        
+    };
+    string DecryptVingenereSquare(string text, string keyword){
+        string decryptedtext;
+        for(int i=0; i< text.size(); i++){
+            if(text[i].isaplha()){
+                char x = (text[i]+keyword[i]+26)%26;
+                x+='A';
+                decryptedtext.push_back(x);
+            }
+            else{
+                decryptedtext.push_back(text[i]);
+            }
+        }
+        return decryptedtext;
+    };
+
 
 
 };
