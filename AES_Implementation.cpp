@@ -46,7 +46,7 @@ public:
         string decryptedtext;
         for(int i=0; i< text.size(); i++){
             if(text[i].isaplha()){
-                char x = (text[i]+keyword[i]+26)%26;
+                char x = (text[i]-keyword[i]+26)%26;
                 x+='A';
                 decryptedtext.push_back(x);
             }
@@ -104,7 +104,7 @@ int main()
                 break;
             case 'b':
                 //Encrypt and Decrypt file using Vigenere Square Cipher
-
+                
                 cout << "Please enter a file name: ";
                 cin >> userFile.fileName;
                 cout << endl;
